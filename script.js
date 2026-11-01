@@ -1,12 +1,12 @@
 const products = [
-  {id:1,name:"Daily Goodness Dog Food",type:"Dogs",category:"DOG NUTRITION",price:189000,emoji:"🥣",tag:"BESTSELLER",art:"dog",image:"assets/food_photo.jpg"},
-  {id:2,name:"Wholesome Cat Kibble",type:"Cats",category:"CAT NUTRITION",price:165000,emoji:"🐱",tag:"EVERYDAY FAVOURITE",art:"cat",image:"assets/food_photo.jpg"},
-  {id:3,name:"The Happy Pup Rope Toy",type:"Toys",category:"PLAY & ENRICHMENT",price:79000,emoji:"🪢",tag:"PLAYTIME PICK",art:"toy",image:"assets/toy_photo.jpg"},
-  {id:4,name:"Cloud Nine Pet Cushion",type:"Care",category:"CARE & COMFORT",price:245000,emoji:"🛏️",tag:"SOFT & COSY",art:"care",image:"assets/bed_photo.jpg"},
-  {id:5,name:"Tasty Bites Training Treats",type:"Dogs",category:"DOG TREATS",price:59000,emoji:"🦴",tag:"LITTLE REWARD",art:"dog",image:"assets/dog_photo.jpg"},
-  {id:6,name:"Playful Cat Wand",type:"Toys",category:"PLAY & ENRICHMENT",price:49000,emoji:"🐾",tag:"CAT APPROVED",art:"toy",image:"assets/toy_photo.jpg"},
-  {id:7,name:"Gentle Grooming Brush",type:"Care",category:"CARE & COMFORT",price:89000,emoji:"🪮",tag:"DAILY CARE",art:"care",image:"assets/dog_photo.jpg"},
-  {id:8,name:"Kitty Comfort Bowl",type:"Cats",category:"CAT ESSENTIALS",price:69000,emoji:"🥛",tag:"THOUGHTFUL PICK",art:"cat",image:"assets/cat_photo.jpg"}
+  {id:1,name:"Daily Goodness Dog Food",type:"Dogs",category:"DOG NUTRITION",price:189000,emoji:"🥣",tag:"BESTSELLER",art:"dog",image:"food_photo.jpg"},
+  {id:2,name:"Wholesome Cat Kibble",type:"Cats",category:"CAT NUTRITION",price:165000,emoji:"🐱",tag:"EVERYDAY FAVOURITE",art:"cat",image:"food_photo.jpg"},
+  {id:3,name:"The Happy Pup Rope Toy",type:"Toys",category:"PLAY & ENRICHMENT",price:79000,emoji:"🪢",tag:"PLAYTIME PICK",art:"toy",image:"toy_photo.jpg"},
+  {id:4,name:"Cloud Nine Pet Cushion",type:"Care",category:"CARE & COMFORT",price:245000,emoji:"🛏️",tag:"SOFT & COSY",art:"care",image:"bed_photo.jpg"},
+  {id:5,name:"Tasty Bites Training Treats",type:"Dogs",category:"DOG TREATS",price:59000,emoji:"🦴",tag:"LITTLE REWARD",art:"dog",image:"dog_photo.jpg"},
+  {id:6,name:"Playful Cat Wand",type:"Toys",category:"PLAY & ENRICHMENT",price:49000,emoji:"🐾",tag:"CAT APPROVED",art:"toy",image:"toy_photo.jpg"},
+  {id:7,name:"Gentle Grooming Brush",type:"Care",category:"CARE & COMFORT",price:89000,emoji:"🪮",tag:"DAILY CARE",art:"care",image:"dog_photo.jpg"},
+  {id:8,name:"Kitty Comfort Bowl",type:"Cats",category:"CAT ESSENTIALS",price:69000,emoji:"🥛",tag:"THOUGHTFUL PICK",art:"cat",image:"cat_photo.jpg"}
 ];
 const money = n => new Intl.NumberFormat("en-US").format(n) + " UZS";
 let cart = JSON.parse(localStorage.getItem("pawura-cart") || "[]");
