@@ -1,12 +1,12 @@
 const products = [
-  {id:1,name:"Daily Goodness Dog Food",type:"Dogs",category:"DOG NUTRITION",price:189000,emoji:"🥣",tag:"BESTSELLER",art:"dog"},
-  {id:2,name:"Wholesome Cat Kibble",type:"Cats",category:"CAT NUTRITION",price:165000,emoji:"🐱",tag:"EVERYDAY FAVOURITE",art:"cat"},
-  {id:3,name:"The Happy Pup Rope Toy",type:"Toys",category:"PLAY & ENRICHMENT",price:79000,emoji:"🪢",tag:"PLAYTIME PICK",art:"toy"},
-  {id:4,name:"Cloud Nine Pet Cushion",type:"Care",category:"CARE & COMFORT",price:245000,emoji:"🛏️",tag:"SOFT & COSY",art:"care"},
-  {id:5,name:"Tasty Bites Training Treats",type:"Dogs",category:"DOG TREATS",price:59000,emoji:"🦴",tag:"LITTLE REWARD",art:"dog"},
-  {id:6,name:"Playful Cat Wand",type:"Toys",category:"PLAY & ENRICHMENT",price:49000,emoji:"🐾",tag:"CAT APPROVED",art:"toy"},
-  {id:7,name:"Gentle Grooming Brush",type:"Care",category:"CARE & COMFORT",price:89000,emoji:"🪮",tag:"DAILY CARE",art:"care"},
-  {id:8,name:"Kitty Comfort Bowl",type:"Cats",category:"CAT ESSENTIALS",price:69000,emoji:"🥛",tag:"THOUGHTFUL PICK",art:"cat"}
+  {id:1,name:"Daily Goodness Dog Food",type:"Dogs",category:"DOG NUTRITION",price:189000,emoji:"🥣",tag:"BESTSELLER",art:"dog",image:"assets/food_photo.jpg"},
+  {id:2,name:"Wholesome Cat Kibble",type:"Cats",category:"CAT NUTRITION",price:165000,emoji:"🐱",tag:"EVERYDAY FAVOURITE",art:"cat",image:"assets/food_photo.jpg"},
+  {id:3,name:"The Happy Pup Rope Toy",type:"Toys",category:"PLAY & ENRICHMENT",price:79000,emoji:"🪢",tag:"PLAYTIME PICK",art:"toy",image:"assets/toy_photo.jpg"},
+  {id:4,name:"Cloud Nine Pet Cushion",type:"Care",category:"CARE & COMFORT",price:245000,emoji:"🛏️",tag:"SOFT & COSY",art:"care",image:"assets/bed_photo.jpg"},
+  {id:5,name:"Tasty Bites Training Treats",type:"Dogs",category:"DOG TREATS",price:59000,emoji:"🦴",tag:"LITTLE REWARD",art:"dog",image:"assets/dog_photo.jpg"},
+  {id:6,name:"Playful Cat Wand",type:"Toys",category:"PLAY & ENRICHMENT",price:49000,emoji:"🐾",tag:"CAT APPROVED",art:"toy",image:"assets/toy_photo.jpg"},
+  {id:7,name:"Gentle Grooming Brush",type:"Care",category:"CARE & COMFORT",price:89000,emoji:"🪮",tag:"DAILY CARE",art:"care",image:"assets/dog_photo.jpg"},
+  {id:8,name:"Kitty Comfort Bowl",type:"Cats",category:"CAT ESSENTIALS",price:69000,emoji:"🥛",tag:"THOUGHTFUL PICK",art:"cat",image:"assets/cat_photo.jpg"}
 ];
 const money = n => new Intl.NumberFormat("en-US").format(n) + " UZS";
 let cart = JSON.parse(localStorage.getItem("pawura-cart") || "[]");
@@ -14,7 +14,7 @@ let activeCategory = "All", searchTerm = "";
 const productsEl=document.getElementById("products"), cartDrawer=document.getElementById("cartDrawer"), overlay=document.getElementById("overlay"), toast=document.getElementById("toast");
 function renderProducts(){
  const filtered=products.filter(p=>(activeCategory==="All"||p.type===activeCategory)&&(`${p.name} ${p.category} ${p.type}`).toLowerCase().includes(searchTerm));
- productsEl.innerHTML=filtered.length?filtered.map(p=>`<article class="product-card"><div class="product-image ${p.art}"><span class="product-tag">${p.tag}</span><span class="product-art" aria-hidden="true">${p.emoji}</span><button class="add-button" data-add="${p.id}" aria-label="Add ${p.name} to bag">+</button></div><div class="product-info"><div class="product-type">${p.category}</div><h3 class="product-name">${p.name}</h3><div class="product-bottom"><span class="product-price">${money(p.price)}</span><span class="product-rating">★★★★★</span></div></div></article>`).join(""):`<p>No products found. Try another search.</p>`;
+ productsEl.innerHTML=filtered.length?filtered.map(p=>`<article class="product-card"><div class="product-image ${p.art}"><img class="product-photo" src="${p.image}" alt="${p.name}" loading="lazy"><span class="product-tag">${p.tag}</span><button class="add-button" data-add="${p.id}" aria-label="Add ${p.name} to bag">+</button></div><div class="product-info"><div class="product-type">${p.category}</div><h3 class="product-name">${p.name}</h3><div class="product-bottom"><span class="product-price">${money(p.price)}</span><span class="product-rating">★★★★★</span></div></div></article>`).join(""):`<p>No products found. Try another search.</p>`;
 }
 function saveCart(){localStorage.setItem("pawura-cart",JSON.stringify(cart));renderCart()}
 function addToCart(id){const item=cart.find(x=>x.id===id);item?item.qty++:cart.push({id,qty:1});saveCart();showToast("Added to your Pawura bag ♡")}
@@ -36,3 +36,4 @@ document.getElementById("checkoutForm").addEventListener("submit",e=>{e.preventD
 document.getElementById("newsletterForm").addEventListener("submit",e=>{e.preventDefault();document.getElementById("newsletterMessage").textContent="Thank you! Newsletter signup is a visual demo and is not connected yet.";e.target.reset()});
 document.getElementById("menuToggle").addEventListener("click",()=>{const nav=document.querySelector(".desktop-nav");nav.style.display=nav.style.display==="flex"?"none":"flex";nav.style.position="absolute";nav.style.top="68px";nav.style.left="0";nav.style.right="0";nav.style.padding="22px";nav.style.background="var(--paper)";nav.style.justifyContent="center";nav.style.zIndex="25"});
 document.getElementById("year").textContent=new Date().getFullYear();renderProducts();renderCart();
+document.querySelectorAll('[data-jump-category]').forEach(link=>link.addEventListener('click',()=>{const category=link.dataset.jumpCategory;activeCategory=category;document.querySelectorAll('.category-chip').forEach(x=>x.classList.toggle('active',x.dataset.category===category));renderProducts()}));
