@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f35">
+  <meta name="description" content="Pawura — thoughtfully chosen food, toys and essentials for pets.">
+  <title>Pawura — Better days for every pet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement">A little more love in every delivery <span>✦</span> Thoughtful essentials for pets</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Pawura home"><span class="brand-mark">p</span><span>pawura<span class="brand-dot">.</span></span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#shop">Shop</a><a href="#story">Our story</a><a href="#care">Pet care</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button search-toggle" aria-label="Search products">⌕</button>
+      <button class="cart-button" id="openCart" aria-label="Open shopping bag">Bag <span id="cartCount">0</span></button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> THE GOOD LIFE, FOR EVERY PAW</p>
+        <h1>Little things.<br><em>Big tail wags.</em></h1>
+        <p class="hero-description">Thoughtfully picked food, playtime favourites and everyday essentials for the ones who make a house feel like home.</p>
+        <div class="hero-actions"><a class="button button-dark" href="#shop">Explore the shop <span>↗</span></a><a class="text-link" href="#story">Get to know us <span>→</span></a></div>
+        <div class="hero-note"><span class="note-icon">✳</span><span>Made for the love<br>we share with pets.</span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-wrap"><img src="assets/hero_pets.jpg" alt="Happy pets enjoying time together" onerror="this.style.display='none'"></div>
+        <div class="hero-sticker"><span>GOOD</span><strong>for</strong><span>THE SOUL</span><b>♡</b></div>
+        <div class="hero-caption">HAPPY PETS CLUB <span>EST. WITH LOVE</span></div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Pawura promises">
+      <div><span>✳</span> Thoughtfully selected</div><div><span>♡</span> Pet-parent approved</div><div><span>✦</span> Everyday joy, delivered</div>
+    </section>
+
+    <section class="shop-section section-pad" id="shop">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE PAWURA EDIT</p><h2>Good stuff for <em>good pets.</em></h2></div>
+        <a class="text-link desktop-only" href="#products">View all products <span>→</span></a>
+      </div>
+      <div class="category-row" id="categoryFilters">
+        <button class="category-chip active" data-category="All">All essentials</button>
+        <button class="category-chip" data-category="Dogs">For dogs</button>
+        <button class="category-chip" data-category="Cats">For cats</button>
+        <button class="category-chip" data-category="Toys">Play &amp; enrichment</button>
+        <button class="category-chip" data-category="Care">Care &amp; comfort</button>
+      </div>
+      <div class="product-grid" id="products"></div>
+    </section>
+
+    <section class="story-section section-pad" id="story">
+      <div class="story-photo"><img src="assets/dog_food.jpg" alt="A happy dog and its favourite essentials"></div>
+      <div class="story-copy"><p class="eyebrow">A LITTLE ABOUT US</p><h2>Because they're<br><em>family, too.</em></h2><p>We believe the everyday moments are the big ones: the excited breakfast dance, the favourite toy, the sleepy curl-up beside you. Pawura is here to make those moments even better.</p><a class="button button-outline" href="#care">The Pawura promise <span>↗</span></a></div>
+    </section>
+
+    <section class="care-band section-pad" id="care">
+      <div><p class="eyebrow">A HAPPIER, HEALTHIER EVERYDAY</p><h2>Care that comes<br>from the <em>heart.</em></h2></div>
+      <p>From nourishing bowls to little comforts, discover considered essentials for every stage, snooze and zoomie.</p>
+      <a class="round-arrow" href="#shop" aria-label="Shop essentials">↗</a>
+    </section>
+
+    <section class="newsletter section-pad">
+      <div><p class="eyebrow">NOTES FROM THE PAW-SOME SIDE</p><h2>A little joy in<br><em>your inbox.</em></h2></div>
+      <form id="newsletterForm"><label for="email">Pet-approved news, new finds and special treats.</label><div class="email-row"><input id="email" type="email" placeholder="Your email address" required><button type="submit">Join us ↗</button></div><small id="newsletterMessage">No spam. Just the good stuff.</small></form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top"><a class="brand brand-light" href="#"><span class="brand-mark">p</span><span>pawura<span class="brand-dot">.</span></span></a><p>Better days for every pet.</p><a href="mailto:hello@pawura.net">hello@pawura.net</a></div>
+    <div class="footer-bottom"><span>© <span id="year"></span> Pawura. Made with love.</span><span>For the love of every paw ♡</span><a href="#top">Back to top ↑</a></div>
+  </footer>
+
+  <div class="search-panel" id="searchPanel" aria-hidden="true"><div class="search-inner"><input id="searchInput" type="search" placeholder="Search food, toys, care…"><button id="closeSearch" aria-label="Close search">✕</button></div></div>
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping bag" aria-hidden="true">
+    <div class="drawer-head"><div><p class="eyebrow">YOUR PAWURA PICKS</p><h3>Your bag <span id="drawerCount">(0)</span></h3></div><button id="closeCart" class="close-button" aria-label="Close bag">✕</button></div>
+    <div class="cart-items" id="cartItems"><div class="empty-cart"><span>♡</span><h4>Your bag is taking a nap.</h4><p>Add something lovely for your pet.</p></div></div>
+    <div class="cart-footer"><div class="subtotal"><span>Subtotal</span><strong id="subtotal">0 UZS</strong></div><p>Delivery and any applicable fees are calculated at checkout.</p><button class="button button-dark checkout-button" id="checkoutButton">Continue to checkout <span>→</span></button></div>
+  </aside>
+
+  <dialog id="checkoutDialog" class="checkout-dialog">
+    <form id="checkoutForm" method="dialog">
+      <div class="drawer-head"><div><p class="eyebrow">ALMOST THERE</p><h3>Delivery details</h3></div><button class="close-button" value="cancel" aria-label="Close checkout">✕</button></div>
+      <label>Full name<input name="name" required placeholder="Your name"></label>
+      <label>Phone number<input name="phone" required type="tel" placeholder="+998 …"></label>
+      <label>Delivery address<textarea name="address" required rows="3" placeholder="Street, building, apartment"></textarea></label>
+      <label>Order note <textarea name="note" rows="2" placeholder="Anything we should know? (optional)"></textarea></label>
+      <div class="checkout-total"><span>Order subtotal</span><strong id="checkoutTotal">0 UZS</strong></div>
+      <button class="button button-dark" type="submit">Place demo order <span>→</span></button>
+      <p class="demo-note">Demo checkout only. No payment is taken and no order is sent to a store yet.</p>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
